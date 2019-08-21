@@ -9,12 +9,9 @@ import java.util.Properties;
 
 public class SendEmailSMTP {
     
-    private static final String EMAIL_TO = "karla.marsia2@gmail.com";
-    private static final String EMAIL_SUBJECT = "My New HomeWork";
-    private static final String EMAIL_TEXT = "Hi Heba\n" +
-            "This is my new HomeWork For the last time.\n" +
-            "Thank you\n" +
-            "karla";
+    private static final String EMAIL_TO = "YourMail@anyMail.com";
+    private static final String EMAIL_SUBJECT = "Your Subject";
+    private static final String EMAIL_TEXT = "Type Your Message Here!";
 
     public static void main(String[] args) {
         System.out.println("Loading...");
@@ -26,12 +23,12 @@ public class SendEmailSMTP {
         Session session = Session.getInstance(properties, null);
         Message message = new MimeMessage(session);
         try {
-            message.setFrom(new InternetAddress("karla.marsia2@gmail.com"));
+            message.setFrom(new InternetAddress("YourMail@AnyMail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(EMAIL_TO, false));
             message.setSubject(EMAIL_SUBJECT);
             message.setText(EMAIL_TEXT);
             SMTPTransport transport = (SMTPTransport) session.getTransport("smtp");
-            transport.connect("smtp.gmail.com", "karla.marsia2@gmail.com", "password");
+            transport.connect("smtp.gmail.com", "YourMail@AnyMail.com", "YourPassword");
             transport.sendMessage(message, message.getAllRecipients());
             System.out.println("Response: " + transport.getLastServerResponse() + "Message Sent!");
             transport.close();

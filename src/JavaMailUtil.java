@@ -19,8 +19,8 @@ public class JavaMailUtil {
         properties.put("mail.smtp.starttls.enable","true");
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
-        String myAccount = "karla.marsia2@gmail.com";
-        String password = "krooshmasary";
+        String myAccount = "YourMail@AnyMail.com";
+        String password = "YourPassword";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
@@ -41,8 +41,8 @@ public class JavaMailUtil {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccount));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepint));
-            message.setSubject("My First Email From Java Program!");
-            message.setText("Hello there!, \nHow are you today!");
+            message.setSubject("Your Subject");
+            message.setText("Type Your Message Here!");
             return message;
         } catch (MessagingException e) {
             e.printStackTrace();
