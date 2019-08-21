@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class SendEmailSMTP {
     
-    private static final String EMAIL_TO = "raitohiory@gmail.com";
+    private static final String EMAIL_TO = "karla.marsia2@gmail.com";
     private static final String EMAIL_SUBJECT = "My New HomeWork";
     private static final String EMAIL_TEXT = "Hi Heba\n" +
             "This is my new HomeWork For the last time.\n" +
@@ -31,7 +31,7 @@ public class SendEmailSMTP {
             message.setSubject(EMAIL_SUBJECT);
             message.setText(EMAIL_TEXT);
             SMTPTransport transport = (SMTPTransport) session.getTransport("smtp");
-            transport.connect("smtp.gmail.com", "karla.marsia2@gmail.com", "krooshmasary");
+            transport.connect("smtp.gmail.com", "karla.marsia2@gmail.com", "password");
             transport.sendMessage(message, message.getAllRecipients());
             System.out.println("Response: " + transport.getLastServerResponse() + "Message Sent!");
             transport.close();
